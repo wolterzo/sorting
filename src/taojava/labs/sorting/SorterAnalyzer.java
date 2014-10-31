@@ -256,6 +256,7 @@ public class SorterAnalyzer
     Integer[] test = reverseIntArrBuilder.build(20);
     System.out.println(Arrays.toString(test));
     */
+    /*
     Integer[] a1 = { 0, 3, 7, 16 };
     Integer[] a2 = { 4, 5, 6, 8, 9 };
     Integer[] results = new Integer[9];
@@ -263,6 +264,18 @@ public class SorterAnalyzer
     Utils.merge(StandardIntegerComparator.COMPARATOR, a1, 0, 4, a2, 0, 5,
                 results, 0, 9);
     System.out.println(Arrays.toString(results));
+    */
+    Integer[] sortme = { 10, 9, 8, 7, 13, 2 };
+    /*
+    NewQuicksorter<Integer> sorter = new NewQuicksorter<Integer>();
+    sorter.qsort(sortme, StandardIntegerComparator.COMPARATOR, 0, 6);
+    
+    InsertionSorterInlineSwap<Integer> sorter = new InsertionSorterInlineSwap<Integer>();
+    sorter.sorti(sortme, standardIntComparator);
+    */
+    InsertionSorterShift<Integer> sorter = new InsertionSorterShift<Integer>();
+    sorter.sorti(sortme, standardIntComparator);
+    System.out.println(Arrays.toString(sortme));
   }// main
 
 } // class SorterAnalyzer
