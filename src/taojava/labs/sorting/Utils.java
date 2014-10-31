@@ -227,4 +227,24 @@ class Utils
     values[j] = tmp;
   } // swap(T[], int, int)
 
+  /**
+  * Get the "sign" of a long.
+  *
+  * @return
+  * -1, if the value is negative;
+  * 0, if the value 0;
+  * 1, if the value is positive.
+  * 
+  * Taken from Sam's sample solution on Notes from Exam 1.
+  */
+  public static long sign(long val)
+  {
+    if (val < 0)
+      return -1;
+    else if (val > 0)
+      return 1;
+    else
+      return 0;
+  } // sign(long)
+
 } // class Utils

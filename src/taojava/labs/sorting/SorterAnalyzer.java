@@ -1,7 +1,7 @@
 package taojava.labs.sorting;
 
 import java.io.PrintWriter;
-
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Random;
 
@@ -9,7 +9,9 @@ import java.util.Random;
  * Tools for analyzing sorters.
  *
  * @author Samuel A. Rebelsky
- * @author Your Name Here
+ * @author Zoe Wolter
+ * @author Zhi Chen
+ * @author Albert Owusu-Asare
  */
 public class SorterAnalyzer
 {
@@ -25,7 +27,7 @@ public class SorterAnalyzer
   /**
    * The smallest array size we use.
    */
-  static final int SMALLEST = 10000;
+  static final int SMALLEST = 40;
 
   /**
    * The largest array size we use.
@@ -35,7 +37,7 @@ public class SorterAnalyzer
   /**
    * The amount we scale the array size between tests.
    */
-  static final int SCALE = 2;
+  static final int SCALE = 10;
 
   // +-----------+-------------------------------------------------------
   // | Constants |
@@ -70,6 +72,35 @@ public class SorterAnalyzer
             vals[i] = i;
           return vals;
         };
+
+  /**
+   * Build arrays that are mostly in increasing order.
+   */
+  public static final ArrayBuilder<Integer> mostlyOrderedIntArrBuilder =
+      (length) ->
+        {
+          Integer[] vals = new Integer[length];
+          int tenPercent = length / 10;
+          if (tenPercent == 0)
+            tenPercent = 1;
+          for (int i = 0; i < length; i++)
+            vals[i] = i;
+          for (int i = 0; i < tenPercent; i++)
+            Utils.swap(vals, Utils.generator.nextInt(length),
+                       Utils.generator.nextInt(length));
+          return vals;
+        };
+
+  /**
+   * Build arrays that are in reverse order.
+   */
+  public static final ArrayBuilder<Integer> reverseIntArrBuilder = (length) ->
+    {
+      Integer[] vals = new Integer[length];
+      for (int i = 0; i < length; i++)
+        vals[i] = length - i;
+      return vals;
+    };
 
   // +--------------+----------------------------------------------------
   // | Class Fields |
@@ -127,7 +158,41 @@ public class SorterAnalyzer
                                             ArrayBuilder<T> builder, int size,
                                             int repetitions)
   {
-    return new long[] { basicAnalysis(sorter, order, builder, size) };
+
+    long[] times = new long[repetitions];
+    long min = 0;
+    long max = 0;
+    long avg = 0;
+    long remainder = 0;
+    long temp;
+
+    for (int i = 0; i < repetitions; i++)
+      {
+        temp = basicAnalysis(sorter, order, builder, size);
+        times[i] = temp;
+        if (i == 0)
+          {
+            min = temp;
+          }
+        else if (temp < min)
+          {
+            min = temp;
+          } // if smaller than min
+        if (temp > max)
+          {
+            max = temp;
+          } // if larger than max
+
+        avg += (temp / repetitions);
+        remainder += (temp % repetitions);
+      } // for repetitions
+    avg += remainder / repetitions;
+    remainder = remainder % repetitions;
+
+    if (Utils.sign(avg) == -(Utils.sign(remainder)))
+      avg += Utils.sign(remainder);
+
+    return new long[] { min, max, avg };
   } // compoundAnalysis(Sorter<T>, ArrayBuilder<T>, int, int)
 
   /**
@@ -152,21 +217,25 @@ public class SorterAnalyzer
                                           ArrayBuilder<T> builders[],
                                           String[] builderNames)
   {
-    pen.printf("%-16s%-16s%-16s%-16s\n", "Sorter", "Builder", "Input Size",
-               "Average Time");
-    pen.printf("%-16s%-16s%-16s%-16s\n", "------", "-------", "------------",
-               "------------");
-    for (int b = 0; b < builders.length; b++)
+    pen.printf("%-16s%-16s%-16s%-16s%-16s%-16s\n", "Sorter", "Builder",
+               "Input Size", "Minimum Time", "Maximum Time", "Average Time");
+    pen.printf("%-16s%-16s%-16s%-16s%-16s%-16s\n", "------", "-------",
+               "------------", "------------", "------------", "------------");
+    for (int a = 0; a < sorters.length; a++)
       {
-        for (int size = SMALLEST; size <= LARGEST; size *= SCALE)
+        for (int b = 0; b < builders.length; b++)
           {
-            long[] stats =
-                compoundAnalysis(sorters[0], order, builders[b], size,
-                                 REPETITIONS);
-            pen.printf("%-16s%-16s%12d    %12d\n", sorterNames[0],
-                       builderNames[b], size, stats[0]);
-          } // for size
-      } // for builder : builders
+            for (int size = SMALLEST; size <= LARGEST; size *= SCALE)
+              {
+                long[] stats =
+                    compoundAnalysis(sorters[a], order, builders[b], size,
+                                     REPETITIONS);
+                pen.printf("%-16s%-16s%12d    %12d    %12d    %12d\n",
+                           sorterNames[a], builderNames[b], size, stats[0],
+                           stats[1], stats[2]);
+              } // for size
+          } // for builder : builders
+      } // for sorter : sorters
   } // combinedAnalysis(PrintWRiter, Sorter<T>, String[], ...)
 
   /**
@@ -180,4 +249,11 @@ public class SorterAnalyzer
     // The pid *might* be in the environment.
     System.gc();
   } // gc()
+  /*
+  public static void main(String[] args)
+  {
+    Integer[] test = reverseIntArrBuilder.build(20);
+    System.out.println(Arrays.toString(test));
+  }// main
+  */
 } // class SorterAnalyzer

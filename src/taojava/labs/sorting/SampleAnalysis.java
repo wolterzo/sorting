@@ -24,8 +24,10 @@ public class SampleAnalysis
     ArrayBuilder<Integer>[] builders =
         (ArrayBuilder<Integer>[]) new ArrayBuilder[] {
                                                       SorterAnalyzer.randomIntArrBuilder,
-                                                      SorterAnalyzer.increasingIntArrBuilder };
-    String[] builderNames = { "Random", "Increasing" };
+                                                      SorterAnalyzer.increasingIntArrBuilder,
+                                                      SorterAnalyzer.reverseIntArrBuilder,
+                                                      SorterAnalyzer.mostlyOrderedIntArrBuilder};
+    String[] builderNames = { "Random", "Increasing", "Reverse", "Mostly Ordered" };
 
     SorterAnalyzer.combinedAnalysis(pen, sorters, sorterNames,
                                     SorterAnalyzer.standardIntComparator,
