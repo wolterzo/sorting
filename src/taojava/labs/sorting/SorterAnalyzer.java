@@ -249,11 +249,20 @@ public class SorterAnalyzer
     // The pid *might* be in the environment.
     System.gc();
   } // gc()
-  /*
+
   public static void main(String[] args)
   {
+    /*
     Integer[] test = reverseIntArrBuilder.build(20);
     System.out.println(Arrays.toString(test));
+    */
+    Integer[] a1 = { 0, 3, 7, 16 };
+    Integer[] a2 = { 4, 5, 6, 8, 9 };
+    Integer[] results = new Integer[9];
+
+    Utils.merge(StandardIntegerComparator.COMPARATOR, a1, 0, 4, a2, 0, 5,
+                results, 0, 9);
+    System.out.println(Arrays.toString(results));
   }// main
-  */
+
 } // class SorterAnalyzer
