@@ -265,7 +265,7 @@ public class SorterAnalyzer
                 results, 0, 9);
     System.out.println(Arrays.toString(results));
     */
-    Integer[] sortme = { 10, 9, 8, 7, 13, 2 };
+    Integer[] sortme = { 10, 9, 8, 13, -2 };
     /*
     NewQuicksorter<Integer> sorter = new NewQuicksorter<Integer>();
     sorter.qsort(sortme, StandardIntegerComparator.COMPARATOR, 0, 6);
@@ -273,7 +273,14 @@ public class SorterAnalyzer
     InsertionSorterInlineSwap<Integer> sorter = new InsertionSorterInlineSwap<Integer>();
     sorter.sorti(sortme, standardIntComparator);
     */
+    /*
     InsertionSorterShift<Integer> sorter = new InsertionSorterShift<Integer>();
+    sorter.sorti(sortme, standardIntComparator);
+    */
+    /*
+    MergeSorterB<Integer> sorter = new MergeSorterB<Integer>();
+    */
+    IterativeMergeSorter<Integer> sorter = new IterativeMergeSorter<Integer>();
     sorter.sorti(sortme, standardIntComparator);
     System.out.println(Arrays.toString(sortme));
   }// main
