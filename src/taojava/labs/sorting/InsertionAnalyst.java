@@ -10,10 +10,11 @@ public class InsertionAnalyst
     PrintWriter pen = new PrintWriter(System.out, true);
     @SuppressWarnings("unchecked")
     Sorter<Integer>[] sorters =
-        (Sorter<Integer>[]) new Sorter[] { new InsertionSorter<Integer>(),
-                                           new InsertionSorterInlineSwap<Integer>(),
-                                           new InsertionSorterShift<Integer>()};
-    String[] sorterNames = { "InsertionA", "InsertionInline", "InsertionSwap" };
+        (Sorter<Integer>[]) new Sorter[] {
+                                          new InsertionSorter<Integer>(),
+                                          new InsertionSorterInlineSwap<Integer>(),
+                                          new InsertionSorterShift<Integer>() };
+    String[] sorterNames = { "InsertionA", "InsertionInline", "InsertionShift" };
 
     @SuppressWarnings("unchecked")
     ArrayBuilder<Integer>[] builders =
@@ -21,8 +22,9 @@ public class InsertionAnalyst
                                                       SorterAnalyzer.randomIntArrBuilder,
                                                       SorterAnalyzer.increasingIntArrBuilder,
                                                       SorterAnalyzer.reverseIntArrBuilder,
-                                                      SorterAnalyzer.mostlyOrderedIntArrBuilder};
-    String[] builderNames = { "Random", "Increasing", "Reverse", "Mostly Ordered" };
+                                                      SorterAnalyzer.mostlyOrderedIntArrBuilder };
+    String[] builderNames =
+        { "Random", "Increasing", "Reverse", "Mostly Ordered" };
 
     SorterAnalyzer.combinedAnalysis(pen, sorters, sorterNames,
                                     SorterAnalyzer.standardIntComparator,

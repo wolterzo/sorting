@@ -256,13 +256,13 @@ public class SorterAnalyzer
     Integer[] test = reverseIntArrBuilder.build(20);
     System.out.println(Arrays.toString(test));
     */
+    
+    Integer[] a1 = { 8, 9, 10, 13 };
+    Integer[] a2 = { -2 };
+    Integer[] results = new Integer[5];
     /*
-    Integer[] a1 = { 0, 3, 7, 16 };
-    Integer[] a2 = { 4, 5, 6, 8, 9 };
-    Integer[] results = new Integer[9];
-
-    Utils.merge(StandardIntegerComparator.COMPARATOR, a1, 0, 4, a2, 0, 5,
-                results, 0, 9);
+    Utils.merge(StandardIntegerComparator.COMPARATOR, a1, 0, 4, a2, 0, 1,
+                results, 0, 5);
     System.out.println(Arrays.toString(results));
     */
     Integer[] sortme = { 10, 9, 8, 13, -2 };
@@ -280,9 +280,11 @@ public class SorterAnalyzer
     /*
     MergeSorterB<Integer> sorter = new MergeSorterB<Integer>();
     */
+    
     IterativeMergeSorter<Integer> sorter = new IterativeMergeSorter<Integer>();
     sorter.sorti(sortme, standardIntComparator);
     System.out.println(Arrays.toString(sortme));
+    
   }// main
 
 } // class SorterAnalyzer
