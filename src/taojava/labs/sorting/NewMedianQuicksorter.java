@@ -8,7 +8,7 @@ import java.util.Comparator;
  * @author Albert Owusu-Asare
  * @author Zhi Chen
  */
-public class NewMedianQuickSorter<T>
+public class NewMedianQuicksorter<T>
     extends NewQuicksorter<T>
 {
   @Override

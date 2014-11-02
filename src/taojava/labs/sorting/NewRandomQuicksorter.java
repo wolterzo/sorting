@@ -9,7 +9,7 @@ import java.util.Comparator;
  * @author Albert Owusu-Asare
  * @author Zhi Chen
  */
-public class NewRandomQuickSorter<T>
+public class NewRandomQuicksorter<T>
     extends NewQuicksorter<T>
 {
   @Override
