@@ -149,14 +149,14 @@ class Utils
       {
         for(int i = lb2; i < ub2; i++)
           {
-            merged[lbm++] = a2[i++];
+            merged[lbm++] = a2[i];
           } // for remaining elements in a2
       } // if
     else
       {
         for (int i = lb1; i < ub1; i++)
           {
-            merged[lbm++] = a1[i++];
+            merged[lbm++] = a1[i];
           } // for
       } // else
     return merged;
