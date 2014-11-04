@@ -22,22 +22,22 @@ public class SorterAnalyzer
   /**
    * The number of repetitions we do in gathering statistics.
    */
-  static final int REPETITIONS = 12;
+  static final int REPETITIONS = 16;
 
   /**
    * The smallest array size we use.
    */
-  static final int SMALLEST = 40;
+  static final int SMALLEST = 10000;
 
   /**
    * The largest array size we use.
    */
-  static final int LARGEST = 40000;
+  static final int LARGEST = 160000;
 
   /**
    * The amount we scale the array size between tests.
    */
-  static final int SCALE = 10;
+  static final int SCALE = 2;
 
   // +-----------+-------------------------------------------------------
   // | Constants |
@@ -140,7 +140,16 @@ public class SorterAnalyzer
     timer.start();
 
     // Do the real work.
-    sorter.sort(values, order);
+    try
+      {
+        sorter.sort(values, order);
+      } // try
+    catch (Throwable error)
+      {
+        // Sorting failed with some error. Return -1 to
+        // indicate failure.
+        return -1;
+      } // catch
 
     // Stop the timer.
     timer.pause();
@@ -256,7 +265,7 @@ public class SorterAnalyzer
     Integer[] test = reverseIntArrBuilder.build(20);
     System.out.println(Arrays.toString(test));
     */
-    
+
     Integer[] a1 = { 8, 9, 10, 13 };
     Integer[] a2 = { -2 };
     Integer[] results = new Integer[5];
@@ -280,11 +289,11 @@ public class SorterAnalyzer
     /*
     MergeSorterB<Integer> sorter = new MergeSorterB<Integer>();
     */
-    
+
     IterativeMergeSorter<Integer> sorter = new IterativeMergeSorter<Integer>();
     sorter.sorti(sortme, standardIntComparator);
     System.out.println(Arrays.toString(sortme));
-    
+
   }// main
 
 } // class SorterAnalyzer
