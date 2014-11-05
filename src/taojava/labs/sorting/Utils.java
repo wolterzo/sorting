@@ -252,6 +252,25 @@ class Utils
   } // swap(T[], int, int)
 
   /**
+   * Swap two elements in an array.
+   *
+   * @param values, the array
+   * @param i, one of the indices
+   * @param j, another index
+   * @pre 0 <= i,j < values.length
+   * @pre a = values[i]
+   * @pre b = values[j]
+   * @post values[i] = b
+   * @post values[j] = a
+   */
+  public static void swap(int[] values, int i, int j)
+  {
+    int tmp = values[i];
+    values[i] = values[j];
+    values[j] = tmp;
+  } // swap(T[], int, int)
+  
+  /**
   * Get the "sign" of a long.
   *
   * @return
