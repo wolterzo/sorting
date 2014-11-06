@@ -4,6 +4,12 @@ import java.io.PrintWriter;
 import java.util.Comparator;
 import java.util.Random;
 
+/**
+ * Methods used to analyze the runtime of IntegerQuicksort
+ * @author Zoe Wolter
+ * @author Albert Owusu-Asare
+ * @author Zhi Chen
+ */
 public class IntegerSortAnalysis
 {
   //+---------------+---------------------------------------------------
@@ -44,7 +50,7 @@ public class IntegerSortAnalysis
       for (int i = 0; i < length; i++)
         vals[i] = random.nextInt(length);
       return vals;
-    }; // randomIArrayBuilder
+    }; // randomIntArrayBuilder
 
   /** 
    * Build arrays of integer values in increasing order.
@@ -55,7 +61,7 @@ public class IntegerSortAnalysis
       for (int i = 0; i < length; i++)
         vals[i] = i;
       return vals;
-    };
+    }; // increasingIntArrBuilder
 
   /**
    * Build arrays that are mostly in increasing order.
@@ -73,7 +79,7 @@ public class IntegerSortAnalysis
             Utils.swap(vals, Utils.generator.nextInt(length),
                        Utils.generator.nextInt(length));
           return vals;
-        };
+        };// mostlyOrderedIntArrBuilder
 
   /**
    * Build arrays that are in reverse order.
@@ -84,7 +90,7 @@ public class IntegerSortAnalysis
       for (int i = 0; i < length; i++)
         vals[i] = length - i;
       return vals;
-    };
+    };// reverseIntArrBuilder
 
   //+---------------+---------------------------------------------------
   // | Class Methods |
@@ -247,6 +253,9 @@ public class IntegerSortAnalysis
     System.gc();
   } // gc()
 
+  /**
+   * main method performing tests.
+   */
   public static void main(String[] args)
   {
     PrintWriter pen = new PrintWriter(System.out, true);

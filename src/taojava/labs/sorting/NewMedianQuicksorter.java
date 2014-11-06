@@ -2,7 +2,8 @@ package taojava.labs.sorting;
 import java.util.Comparator;
 
 /**
- * Sort using a slightly different version of Quicksort.
+ * Sort using a slightly different version of Quicksort.<br>
+ * Selects the median of 3 random values.
  *
  * @author Zoe Wolter   
  * @author Albert Owusu-Asare

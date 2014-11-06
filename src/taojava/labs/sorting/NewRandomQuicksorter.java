@@ -3,7 +3,8 @@ package taojava.labs.sorting;
 import java.util.Comparator;
 
 /**
- * Sort using a slightly different version of Quicksort.
+ * Sort using a slightly different version of Quicksort.<br>
+ * Selects a random pivot.
  *
  * @author Zoe Wolter   
  * @author Albert Owusu-Asare

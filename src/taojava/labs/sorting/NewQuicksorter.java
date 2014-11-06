@@ -7,7 +7,9 @@ import java.util.Comparator;
  * Sort using a slightly different version of Quicksort.
  *
  * @author Samuel A. Rebelsky
- * @author Your Name Here.
+ * @author Zoe Wolter
+ * @author Albert Owusu-Asare
+ * @author Zhi Chen
  */
 public class NewQuicksorter<T>
     extends SorterBridge<T>

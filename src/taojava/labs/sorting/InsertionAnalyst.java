@@ -2,6 +2,14 @@ package taojava.labs.sorting;
 
 import java.io.PrintWriter;
 
+/**
+ * 
+ * Main class for analyzing various implementations of insertion sort
+ * @author Samuel Rebelsky
+ * @author Zoe Wolter
+ * @author Albert Owusu-Asare
+ * @author Zhi Chen
+ */
 public class InsertionAnalyst
 {
 

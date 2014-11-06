@@ -1,7 +1,14 @@
 package taojava.labs.sorting;
 
 import java.util.Comparator;
-
+/**
+ * 
+ * Sort using insertion sort, by shifting elements instead of swapping 
+ * @author Samuel Rebelsky
+ * @author Zoe Wolter
+ * @author Albert Owusu-Asare
+ * @author Zhi Chen
+ */
 public class InsertionSorterShift<T>
     extends SorterBridge<T>
 {
@@ -49,6 +56,8 @@ public class InsertionSorterShift<T>
     //   I3(n) holds at the beginning because the second subarray is empty
     int i = n;
     T tmp = vals[n];
+    
+    //shift elements to designated positions
     while ((i > 0) && (order.compare(tmp, vals[i-1]) < 0))
       {
         vals[i] = vals[i-1];

@@ -1,5 +1,12 @@
 package taojava.labs.sorting;
 
+/**
+ * An interface for building arrays of ints
+ *
+ * @author Zoe Wolter
+ * @author Albert Owusu-Asare
+ * @author Zhi Chen
+ */
 public interface IntegerArrayBuilder
 {
   /**

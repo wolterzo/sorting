@@ -2,6 +2,13 @@ package taojava.labs.sorting;
 
 import java.io.PrintWriter;
 
+/**
+ * Main class for analyzing various implementations of quick sort.
+ * @author Albert Owusu-Asare
+ * @author Samuel Rebelsky
+ * @author Zhi Chen
+ * @author Zoe Wolter
+ */
 public class QuicksortAnalyzer
 {
   public static void main(String[] args)
@@ -30,6 +37,8 @@ public class QuicksortAnalyzer
                                     builders, builderNames);
   } // main(String[])
 } // QuickSortAnalyzer
+
+//Explanation:
 
 // For arrays that are in increasing, mostly ordered, or reversed order, 
 // picking the middle element as the pivot gives the best run times. For 

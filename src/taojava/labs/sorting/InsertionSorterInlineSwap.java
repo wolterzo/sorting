@@ -2,6 +2,14 @@ package taojava.labs.sorting;
 
 import java.util.Comparator;
 
+/**
+ * 
+ * Sort using insertion sort, swapping elements in-line
+ * @author Samuel Rebelsky
+ * @author Zoe Wolter
+ * @author Albert Owusu-Asare
+ * @author Zhi Chen
+ */
 public class InsertionSorterInlineSwap<T>
     extends SorterBridge<T>
 {

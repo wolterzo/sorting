@@ -3,7 +3,8 @@ package taojava.labs.sorting;
 import java.util.Comparator;
 
 /**
- * Sort using a slightly different version of Quicksort.
+ * Sort using a slightly different version of Quicksort. <br>
+ * Selects middle element of the sub-array as pivot
  *
  * @author Zoe Wolter   
  * @author Albert Owusu-Asare
@@ -18,6 +19,6 @@ public class NewerQuicksorter<T>
    */
   public T selectPivot(T[] vals, Comparator<T> order, int lb, int ub)
   {
-    return vals[(lb + ub) / 2];
+    return vals[(lb/2 + ub/2)];
   } // selectPivot(T[], vals, Comparator<T> order, int lb, int ub)
 } // NewerQuickSorter

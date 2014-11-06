@@ -1,4 +1,10 @@
 package taojava.labs.sorting;
+/**
+ * Non-generic quicksort method for ints.
+ * @author Zhi Chen
+ * @author Zoe Wolter
+ * @author Albert Owusu-Asare
+ */
 
 public class IntegerQuicksort
 {

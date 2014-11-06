@@ -2,6 +2,13 @@ package taojava.labs.sorting;
 
 import java.util.Comparator;
 
+/**
+ * 
+ * Sort using insertion sort, swapping elements in-line
+ * @author Zoe Wolter
+ * @author Albert Owusu-Asare
+ * @author Zhi Chen
+ */
 public class MergeSorterB<T>
     extends SorterBridge<T>
 {
@@ -14,8 +21,17 @@ public class MergeSorterB<T>
   {
     T[] scratch = (T[]) new Object[vals.length];
     return mergeSort(vals, order, 0, vals.length, scratch);
-  }
+  }//sort((T[], Comparator<T>)
 
+  /**
+   * Sort values using recursive merge sort with one extra array. 
+   * @param values the array to be sorted
+   * @param order the comparator
+   * @param lb lower bound index of values
+   * @param ub upper bound index of values
+   * @param scratch a dummy array to store elements while sorting
+   * @return a sorted array
+   */
   public T[] mergeSort(T[] values, Comparator<T> order, int lb, int ub,
                        T[] scratch)
   {

@@ -5,9 +5,10 @@ import java.util.Comparator;
 
 /**
  * Sort using iterative merge sort.
- * 
- * @author Samuel A. Rebelsky
- * @author Your Name Here.
+ * @author Samuel Rebelsky
+ * @author Zoe Wolter
+ * @author Albert Owusu-Asare
+ * @author Zhi Chen
  */
 public class IterativeMergeSorter<T>
     extends SorterBridge<T>
@@ -19,11 +20,11 @@ public class IterativeMergeSorter<T>
   @Override
   public T[] sorti(T[] vals, Comparator<T> order)
   {
-    // STUB
     int size = 1;
     int length = vals.length;
     @SuppressWarnings("unchecked")
     T[] scratch = (T[]) new Object[length];
+    
     while (size < length)
       {
         scratch = vals.clone();

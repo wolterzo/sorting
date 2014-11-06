@@ -11,7 +11,9 @@ import java.util.Random;
  * are designed to help with testing or experiments.
  *
  * @author Samuel A. Rebelsky
- * @author Your Name Here
+ * @author Zoe Wolter
+ * @author Albert Owusu-Asare
+ * @author Zhi Chen
  */
 class Utils
 {
@@ -145,6 +147,8 @@ class Utils
             merged[lbm++] = a2[lb2++];
           } // else
       } // while
+    
+    // Check which array run out and fill with elements of other
     if (lb1 == ub1)
       {
         for(int i = lb2; i < ub2; i++)
