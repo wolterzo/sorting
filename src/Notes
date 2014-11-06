@@ -1,0 +1,30 @@
+
+
+ Zoe Wolter
+ Albert Owusu-Asare
+ Zhi Chen
+
+
+
+Part3:
+a) see InsertionSorterInlineSwap.java
+b) see InsertionSorterShift
+c) Analysis of insertion sort can be found in InsertionAnalyst.java
+
+Part4:
+a) see MergeSorterB.java
+b) see IterativeMergeSorter.java
+c) see MergeAnalyst.java
+
+Part5:
+a) see NewerQuicksorter.java
+b) see NewRandomQuickSorter.java
+c) see NewMedianQuickSorter.java
+d) see QuicksortAnalyzer.java
+
+Part6:
+
+a) We decided to use the Quicksort algorithm that uses a random pivot
+ => see IntegerQuicksort.java
+
+b) see IntegerSortAnalysis.java and IntegerArrayBuilder.java
